@@ -1,0 +1,61 @@
+# Rust
+target/
+**/*.rs.bk
+# Cargo.lock is committed — this is an application workspace, not a library.
+
+# Node / pnpm
+node_modules/
+dist/
+dist-ssr/
+.pnpm-store/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tauri
+src-tauri/target/
+src-tauri/gen/
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Claude Code（每台机器独立的本地权限/设置；shared 的 settings.json 仍入库）
+.claude/settings.local.json
+
+# Local env / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Build artefacts
+*.log
+*.dmp
+release/
+out/
+apps/desktop/vite.config.js
+apps/desktop/vite.config.d.ts
+**/tsconfig.tsbuildinfo
+
+# Pinkbin local data
+.pinkbin/
+.diskwise/
+pinkbin.local.json
+
+# Generated icon source (produced by scripts/generate-icon.ps1)
+apps/desktop/src-tauri/icon-source.png
+
+# Per-developer cargo config (e.g. China rsproxy.cn mirror).
+# Repo-level .cargo/config.toml forces the mirror on CI/non-CN devs and breaks
+# GitHub-hosted Windows runners (rsproxy.cn flaky from US/EU). Set in
+# ~/.cargo/config.toml (user-level) instead.
+.cargo/

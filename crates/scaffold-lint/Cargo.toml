@@ -1,0 +1,15 @@
+[package]
+name        = "pinkbin-scaffold-lint"
+version.workspace     = true
+edition.workspace     = true
+license.workspace     = true
+repository.workspace  = true
+
+[[bin]]
+name = "pinkbin-scaffold-lint"
+path = "src/main.rs"
+
+[dependencies]
+pinkbin-scaffold = { path = "../scaffold" }
+toml.workspace    = true
+anyhow.workspace  = true

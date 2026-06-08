@@ -1,0 +1,47 @@
+[package]
+name        = "pinkbin-desktop"
+version.workspace     = true
+edition.workspace     = true
+license.workspace     = true
+repository.workspace  = true
+
+[lib]
+name       = "pinkbin_desktop_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[[bin]]
+name = "pinkbin"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri                = { version = "2", features = [] }
+tauri-plugin-dialog  = "2"
+tauri-plugin-fs      = "2"
+tauri-plugin-shell   = "2"
+
+serde.workspace              = true
+serde_json.workspace         = true
+tokio.workspace              = true
+anyhow.workspace             = true
+chrono.workspace             = true
+tracing.workspace            = true
+tracing-subscriber.workspace = true
+jwalk.workspace              = true
+globset.workspace            = true
+reqwest.workspace            = true
+include_dir.workspace        = true
+
+pinkbin-scanner          = { path = "../../../crates/scanner" }
+pinkbin-scaffold         = { path = "../../../crates/scaffold" }
+pinkbin-executor         = { path = "../../../crates/executor" }
+pinkbin-advisor          = { path = "../../../crates/advisor" }
+pinkbin-steam-inspector  = { path = "../../../crates/steam-inspector" }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys.workspace    = true
+
+[dev-dependencies]
+tempfile.workspace = true
