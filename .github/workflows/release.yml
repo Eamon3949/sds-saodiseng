@@ -36,7 +36,7 @@ jobs:
         with:
           projectPath: apps/desktop
           tagName: ${{ github.ref_name }}
-          releaseName: "Pinkbin ${{ github.ref_name }}"
+          releaseName: "SDS扫地僧 ${{ github.ref_name }}"
           releaseDraft: true
           prerelease: false
           args: --target x86_64-pc-windows-msvc

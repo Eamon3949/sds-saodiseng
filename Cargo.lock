@@ -2755,111 +2755,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a89322df9ebe1c1578d689c92318e070967d1042b512afbe49518723f4e6d5cd"
 
 [[package]]
-name = "pinkbin-advisor"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "thiserror 2.0.18",
- "tokio",
- "tracing",
-]
-
-[[package]]
-name = "pinkbin-desktop"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "chrono",
- "globset",
- "include_dir",
- "jwalk",
- "pinkbin-advisor",
- "pinkbin-executor",
- "pinkbin-scaffold",
- "pinkbin-scanner",
- "pinkbin-steam-inspector",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-fs",
- "tauri-plugin-shell",
- "tempfile",
- "tokio",
- "tracing",
- "tracing-subscriber",
- "windows-sys 0.59.0",
-]
-
-[[package]]
-name = "pinkbin-executor"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "chrono",
- "serde",
- "serde_json",
- "thiserror 2.0.18",
- "tracing",
- "trash",
-]
-
-[[package]]
-name = "pinkbin-scaffold"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "globset",
- "serde",
- "shellexpand",
- "thiserror 2.0.18",
- "toml 1.1.2+spec-1.1.0",
- "tracing",
-]
-
-[[package]]
-name = "pinkbin-scaffold-lint"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "pinkbin-scaffold",
- "toml 1.1.2+spec-1.1.0",
-]
-
-[[package]]
-name = "pinkbin-scanner"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "jwalk",
- "ntfs",
- "rayon",
- "serde",
- "thiserror 2.0.18",
- "tracing",
- "walkdir",
- "windows-sys 0.59.0",
-]
-
-[[package]]
-name = "pinkbin-steam-inspector"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "dirs 5.0.1",
- "serde",
- "tempfile",
- "thiserror 2.0.18",
- "tracing",
- "windows-sys 0.59.0",
-]
-
-[[package]]
 name = "pkg-config"
 version = "0.3.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3505,6 +3400,111 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502"
 dependencies = [
  "winapi-util",
+]
+
+[[package]]
+name = "saodiseng-advisor"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "reqwest 0.12.28",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.18",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
+name = "saodiseng-desktop"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "globset",
+ "include_dir",
+ "jwalk",
+ "reqwest 0.12.28",
+ "saodiseng-advisor",
+ "saodiseng-executor",
+ "saodiseng-scaffold",
+ "saodiseng-scanner",
+ "saodiseng-steam-inspector",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-fs",
+ "tauri-plugin-shell",
+ "tempfile",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+ "windows-sys 0.59.0",
+]
+
+[[package]]
+name = "saodiseng-executor"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.18",
+ "tracing",
+ "trash",
+]
+
+[[package]]
+name = "saodiseng-scaffold"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "globset",
+ "serde",
+ "shellexpand",
+ "thiserror 2.0.18",
+ "toml 1.1.2+spec-1.1.0",
+ "tracing",
+]
+
+[[package]]
+name = "saodiseng-scaffold-lint"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "saodiseng-scaffold",
+ "toml 1.1.2+spec-1.1.0",
+]
+
+[[package]]
+name = "saodiseng-scanner"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "jwalk",
+ "ntfs",
+ "rayon",
+ "serde",
+ "thiserror 2.0.18",
+ "tracing",
+ "walkdir",
+ "windows-sys 0.59.0",
+]
+
+[[package]]
+name = "saodiseng-steam-inspector"
+version = "0.1.2"
+dependencies = [
+ "anyhow",
+ "dirs 5.0.1",
+ "serde",
+ "tempfile",
+ "thiserror 2.0.18",
+ "tracing",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]

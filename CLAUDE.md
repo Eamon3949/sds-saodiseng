@@ -1,10 +1,10 @@
-# Pinkbin · 给 Claude 的工作约定
+# SDS扫地僧 · 给 Claude 的工作约定
 
 > 这份文件是仓库级硬约束，每次 Claude Code 会话会自动读。**改 scaffold / 加 scaffold 时 Claude 必须按本文件 + `.claude/commands/add-scaffold.md` 走流程**。
 
 ## 项目背景
 
-Pinkbin 是一个磁盘清理桌面 app（Tauri 2 + React + Rust）。核心是一组 **scaffold TOML**（`scaffolds/<id>.toml`）——每份描述一个常用软件的清理目标（缓存、日志、可选的历史媒体）和它的红线。Studio 面板按 scaffold 渲染卡片，用户可以按 scope 单独清理。
+SDS扫地僧 是一个磁盘清理桌面 app（Tauri 2 + React + Rust）。核心是一组 **scaffold TOML**（`scaffolds/<id>.toml`）——每份描述一个常用软件的清理目标（缓存、日志、可选的历史媒体）和它的红线。Studio 面板按 scaffold 渲染卡片，用户可以按 scope 单独清理。
 
 ## Hard rules（不可违反）
 
@@ -48,15 +48,15 @@ Rust 的 `Scaffold` 结构体用 `serde` 做了 TOML ↔ JSON 双向序列化：
 
 **任何对 `Scaffold` / `Scope` / `Mode` / `Prompt` 的字段调整**：
 - 同步更新 `apps/desktop/src/types.ts` 的镜像类型
-- 验证：`cargo check -p pinkbin-desktop` + `pnpm -C apps/desktop exec tsc --noEmit` 都干净
+- 验证：`cargo check -p saodiseng-desktop` + `pnpm -C apps/desktop exec tsc --noEmit` 都干净
 
 ## 命令速查
 
 ```bash
 # Scaffold lint（必须 0 error）
-cargo run -p pinkbin-scaffold-lint -- scaffolds/<id>.toml
+cargo run -p saodiseng-scaffold-lint -- scaffolds/<id>.toml
 # 全部 safety test
-cargo test -p pinkbin-scaffold
+cargo test -p saodiseng-scaffold
 # 桌面端 dev
 pnpm tauri dev
 # 类型检查

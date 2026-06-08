@@ -4,7 +4,7 @@
 //! fixture path (UTF-8 read, tab-indented Steam style, full field set) end
 //! to end.
 
-use pinkbin_steam_inspector::{parse_appmanifest, parse_libraryfolders};
+use saodiseng_steam_inspector::{parse_appmanifest, parse_libraryfolders};
 
 const ACF_730: &str = include_str!("fixtures/appmanifest_730.acf");
 const LIBRARYFOLDERS: &str = include_str!("fixtures/libraryfolders.vdf");
@@ -46,7 +46,7 @@ fn raw_appmanifest_only_exposes_public_fields() {
     // Compile-time check by exhaustive match on the public fields. Adding a
     // private/sensitive field to RawAppManifest will require updating this
     // test, which forces a review.
-    let pinkbin_steam_inspector::RawAppManifest {
+    let saodiseng_steam_inspector::RawAppManifest {
         appid,
         name,
         install_dir,

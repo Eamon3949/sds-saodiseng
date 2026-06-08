@@ -157,7 +157,7 @@ async fn translate_steam_names(
 
 ## 6. 前端契约 & 交互设计
 
-> 整个前端按 memory 里的 [前端设计参考 NotebookLM](../../.claude/projects/c--Users-lvjin-Desktop-vibe-coding-pinkbin/memory/feedback_frontend_notebooklm.md) 走——交互质量是硬指标。这一节先列 8 条原则在 Inspector 的具体落点（§6.0），review 时**按这张表检查**；之后才是类型/API/布局细节。
+> 整个前端按 memory 里的 [前端设计参考 NotebookLM](../../.claude/projects/c--Users-lvjin-Desktop-vibe-coding-saodiseng/memory/feedback_frontend_notebooklm.md) 走——交互质量是硬指标。这一节先列 8 条原则在 Inspector 的具体落点（§6.0），review 时**按这张表检查**；之后才是类型/API/布局细节。
 
 ### 6.0 NotebookLM 原则 → Inspector 落点
 
@@ -225,11 +225,11 @@ translateSteamNames: (appids: number[]) =>
 
 第一版尝试过顶层 header 加 `🎮 Steam` toggle 按钮 → 用户立即否决，理由：
 
-- Pinkbin header 心智模型是"主操作"（选目录 / 扫描 / AI tag / 设置），不放 view mode 切换
+- SDS扫地僧 header 心智模型是"主操作"（选目录 / 扫描 / AI tag / 设置），不放 view mode 切换
 - 右侧 Studio 列表是**所有功能的统一入口**，新面板不走这条路就破坏一致性
 - 跟微信等其他 scaffold 在 UI 上分隔会让用户产生"为什么 Steam 是个特殊东西"的认知摩擦
 
-记忆登记：[feedback_studio_card_plus_modal.md](../../.claude/projects/c--Users-lvjin-Desktop-vibe-coding-pinkbin/memory/feedback_studio_card_plus_modal.md) — 后续新面板默认 Studio + modal。
+记忆登记：[feedback_studio_card_plus_modal.md](../../.claude/projects/c--Users-lvjin-Desktop-vibe-coding-saodiseng/memory/feedback_studio_card_plus_modal.md) — 后续新面板默认 Studio + modal。
 
 #### 三栏布局怎么放进 modal
 
@@ -423,7 +423,7 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
 
 ### 7.1 三级 fallback
 
-1. **本地 cache**（`<app-data>/pinkbin/steam-name-cache.json`，per-appid 持久化）
+1. **本地 cache**（`<app-data>/saodiseng/steam-name-cache.json`，per-appid 持久化）
    - schema：`{ "<appid>": { "name_cn": "...", "fetched_at": <unix> } }`
    - TTL：永久（游戏中文名几乎不会变）
 2. **Steam Storefront API**（无需 key）
@@ -431,7 +431,7 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
    - 返回 `{"<id>": {"success": true, "data": {"name": "中文名"}}}`
    - 限流：Steam 官方 ~200 req/5min，我们一次开机最多调一次（appid 没翻过的批），手动节流到 2 req/sec
    - 不支持批量多 appid；要逐个调（异步并发 4 个）
-3. **Advisor LLM fallback**（`pinkbin_advisor` 现成 provider）
+3. **Advisor LLM fallback**（`saodiseng_advisor` 现成 provider）
    - 仅当 Storefront API 返回 `success: false`（极少数下架游戏）才走
    - prompt：纯英文 → 中文，不暴露任何路径/用户信息
    - 用户没配 advisor 就直接显示英文 name —— **不**强制要 API key
@@ -493,9 +493,9 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
 
 理由 + 触发信号已登记 §11.1。
 
-### E. 命名 → **directory `crates/steam-inspector/`，package `pinkbin-steam-inspector`**
+### E. 命名 → **directory `crates/steam-inspector/`，package `saodiseng-steam-inspector`**
 
-理由：directory 跟现有 `scaffold/`、`scanner/` 等无前缀；package 跟 `pinkbin-scaffold` 同款 `pinkbin-` 前缀。前端组件 `SteamInspector.tsx`，跟文档同名。
+理由：directory 跟现有 `scaffold/`、`scanner/` 等无前缀；package 跟 `saodiseng-scaffold` 同款 `saodiseng-` 前缀。前端组件 `SteamInspector.tsx`，跟文档同名。
 
 ## 11. Known limitations & future work
 
@@ -567,7 +567,7 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
 
 **为什么先不做更多**：
 
-- 普通用户用 UU 加速器 / 雷神 / 腾讯网游加速器这类**只加速注册过的游戏进程**的工具，对 Pinkbin 这种第三方桌面 app 完全没效果（UU 不接管非游戏进程的流量，不路由 `api.steampowered.com` 这种 web 基础设施域名）
+- 普通用户用 UU 加速器 / 雷神 / 腾讯网游加速器这类**只加速注册过的游戏进程**的工具，对 SDS扫地僧 这种第三方桌面 app 完全没效果（UU 不接管非游戏进程的流量，不路由 `api.steampowered.com` 这种 web 基础设施域名）
 - 修复需要服务端基础设施（Cloudflare Worker / VPS 中继 / 自建 API），有运维责任
 - 用户没明确反馈"看不到名字很烦"——名字目前是 bonus 不是核心
 
@@ -582,7 +582,7 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
 1. **部署 Cloudflare Worker**（约 30 行，免费 100k req/day）：
 
    ```javascript
-   // pinkbin-steam-relay.js
+   // saodiseng-steam-relay.js
    export default {
      async fetch(req) {
        if (req.method !== 'POST') return new Response('only POST', { status: 405 });
@@ -599,7 +599,7 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
    }
    ```
 
-2. **Pinkbin 改两处**（`apps/desktop/src-tauri/src/lib.rs::fetch_workshop_titles`）：
+2. **SDS扫地僧 改两处**（`apps/desktop/src-tauri/src/lib.rs::fetch_workshop_titles`）：
 
    - 加常量 `STEAM_API_RELAY: Option<&str> = Some("https://你的-relay.workers.dev")`（编译期写死，避免给小白用户加 Settings 选项 → 违反"UI 不做选择题"）
    - 直连两次都失败后，再对 relay URL 试一次（同样的 form body 直接 POST 过去，Worker 透传）
@@ -612,7 +612,7 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
 **反例 / 不要做的事**：
 
 - ❌ 不要在 Settings 里加"自定义 API 代理"输入框给用户填——99% 的用户不知道这是啥，违反"80% 痛点聚焦 + UI 不做选择题"
-- ❌ 不要尝试把 Pinkbin 进程伪装成 cs2.exe 骗 UU 加速——UU 按域名+目标 IP 路由，不路由 web 基础设施域名，伪装无效
+- ❌ 不要尝试把 SDS扫地僧 进程伪装成 cs2.exe 骗 UU 加速——UU 按域名+目标 IP 路由，不路由 web 基础设施域名，伪装无效
 - ❌ 不要 bundle 静态名字数据库（top 10K 工坊项）——Steam 工坊百亿级，覆盖率低收益差
 
 ### 11.7 游戏内文件粒度清理
@@ -640,4 +640,4 @@ NotebookLM 的"换个角度看同一份数据"。第一版四种透视：
 7. 安全测试 + 手测 checklist
 8. 配套 `scaffolds/steam.toml`（缓存清理，独立工件，走 `/add-scaffold steam` 14-phase）
 
-每步完成后跑 `cargo check -p pinkbin-desktop` + `pnpm -C apps/desktop exec tsc --noEmit`，schema 改动一定要双向编译干净。
+每步完成后跑 `cargo check -p saodiseng-desktop` + `pnpm -C apps/desktop exec tsc --noEmit`，schema 改动一定要双向编译干净。

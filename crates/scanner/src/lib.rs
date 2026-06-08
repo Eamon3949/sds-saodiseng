@@ -475,7 +475,7 @@ mod tests {
 
     fn tempdir_path() -> PathBuf {
         let p = std::env::temp_dir().join(format!(
-            "pinkbin-test-{}",
+            "saodiseng-test-{}",
             std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)
                 .unwrap()

@@ -1,4 +1,4 @@
-# 跨设备运行测试 Checklist · Diskwise (Pinkbin)
+# 跨设备运行测试 Checklist · Diskwise (SDS扫地僧)
 
 > 用途：把 A 机器 build 出的 `Diskwise_<version>_x64-setup.exe` 装到 B 机器，验证跨机运行 + scaffold 在不同机器状态下的行为。
 > **核心原则**：**全程 preview / dry-run，不点任何 execute**。今晚只验运行，不验删除。
@@ -40,7 +40,7 @@
 挑 **1–2 个低风险 scaffold**（推荐顺序）：
 1. **浏览器缓存类**（Chrome / Edge cache）—— 最不可能误伤
 2. **IDE 缓存类**（Cursor / VSCode 缓存）—— 路径规整
-3. **WeChat（如装了）** —— Pinkbin 重点验证项
+3. **WeChat（如装了）** —— SDS扫地僧 重点验证项
 
 每个 scaffold 展开做：
 

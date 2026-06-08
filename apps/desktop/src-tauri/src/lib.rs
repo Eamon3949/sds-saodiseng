@@ -4,13 +4,13 @@ use std::sync::Mutex;
 use std::time::{Duration, SystemTime};
 
 use include_dir::{include_dir, Dir};
-use pinkbin_advisor::{advise as advise_provider, AdvisorRequest, AdvisorResponse, Provider};
-use pinkbin_executor::{execute, Plan, UndoEntry};
-use pinkbin_scaffold::{
+use saodiseng_advisor::{advise as advise_provider, AdvisorRequest, AdvisorResponse, Provider};
+use saodiseng_executor::{execute, Plan, UndoEntry};
+use saodiseng_scaffold::{
     compile_all, detect_compiled, detect_for, expand_env, load_dir, parse_toml, CompiledScaffold,
     RecycleGranularity, Scaffold,
 };
-use pinkbin_scanner::{sample_paths, scan_with_stats, Node, ScanOptions, ScanStats};
+use saodiseng_scanner::{sample_paths, scan_with_stats, Node, ScanOptions, ScanStats};
 
 use tauri::{AppHandle, Emitter, Manager, State};
 
@@ -189,7 +189,7 @@ async fn estimate_size(path: String) -> Result<u64, String> {
     let p = PathBuf::from(&path);
     tokio::task::spawn_blocking(move || -> u64 {
         let mut total: u64 = 0;
-        for entry in pinkbin_walker(&p).into_iter().flatten() {
+        for entry in saodiseng_walker(&p).into_iter().flatten() {
             if entry.file_type().is_file() {
                 if let Ok(md) = entry.metadata() {
                     total = total.saturating_add(md.len());
@@ -356,7 +356,7 @@ fn is_pruned_system_dir(name: &std::ffi::OsStr) -> bool {
 /// (b) `process_read_dir` 在读目录时直接 prune 系统垃圾箱/卷元数据子树，
 ///     比"扫完再过滤路径"省一个数量级 IO，并彻底排除"glob 撞回收站"事故面。
 /// scanner crate 的"主页大盘占用扫描"故意不走这里——那边用户期望看到回收站占用。
-fn pinkbin_walker(root: &Path) -> jwalk::WalkDir {
+fn saodiseng_walker(root: &Path) -> jwalk::WalkDir {
     jwalk::WalkDir::new(root)
         .skip_hidden(false)
         .follow_links(false)
@@ -390,7 +390,7 @@ fn find_matching_dirs(
     older_than_days: Option<u32>,
 ) -> Vec<PathBuf> {
     let mut candidates: Vec<PathBuf> = Vec::new();
-    for entry in pinkbin_walker(root).into_iter().flatten() {
+    for entry in saodiseng_walker(root).into_iter().flatten() {
         if !entry.file_type().is_dir() {
             continue;
         }
@@ -512,7 +512,7 @@ async fn scope_sizes(
         let mut tally: Vec<(u64, u64)> = vec![(0, 0); builds.len()];
         let mut total: Vec<(u64, u64)> = vec![(0, 0); builds.len()];
         if !file_indices.is_empty() {
-            for entry in pinkbin_walker(&root).into_iter().flatten() {
+            for entry in saodiseng_walker(&root).into_iter().flatten() {
                 if !entry.file_type().is_file() {
                     continue;
                 }
@@ -658,7 +658,7 @@ async fn execute_scope(
             ),
             RecycleGranularity::File => {
                 let mut out = Vec::new();
-                for entry in pinkbin_walker(&root).into_iter().flatten() {
+                for entry in saodiseng_walker(&root).into_iter().flatten() {
                     if !entry.file_type().is_file() {
                         continue;
                     }
@@ -695,21 +695,21 @@ async fn execute_scope(
     // recoverability via Recycle Bin is non-negotiable. File granularity
     // honors the scope's declared mode (recycle/quarantine/delete) as before.
     let action = match (granularity, scope.mode) {
-        (RecycleGranularity::Directory, _) => pinkbin_executor::Action::Recycle,
-        (RecycleGranularity::File, pinkbin_scaffold::Mode::Recycle) => {
-            pinkbin_executor::Action::Recycle
+        (RecycleGranularity::Directory, _) => saodiseng_executor::Action::Recycle,
+        (RecycleGranularity::File, saodiseng_scaffold::Mode::Recycle) => {
+            saodiseng_executor::Action::Recycle
         }
-        (RecycleGranularity::File, pinkbin_scaffold::Mode::Quarantine) => {
-            pinkbin_executor::Action::Quarantine
+        (RecycleGranularity::File, saodiseng_scaffold::Mode::Quarantine) => {
+            saodiseng_executor::Action::Quarantine
         }
-        (RecycleGranularity::File, pinkbin_scaffold::Mode::Delete) => {
-            pinkbin_executor::Action::Delete
+        (RecycleGranularity::File, saodiseng_scaffold::Mode::Delete) => {
+            saodiseng_executor::Action::Delete
         }
     };
     let plan = Plan {
         action,
         paths: matched,
-        reason: format!("Pinkbin scaffold {}/{} (Studio)", scaffold.id, scope.id),
+        reason: format!("SDS扫地僧 scaffold {}/{} (Studio)", scaffold.id, scope.id),
     };
     execute(&plan, dry_run, &state.undo_log, &state.quarantine_root).map_err(|e| e.to_string())
 }
@@ -816,7 +816,7 @@ fn dir_size_excluding(dir: &Path, excludes: &[PathBuf]) -> u64 {
         .map(|p| p.to_string_lossy().replace('\\', "/").to_lowercase())
         .collect();
     let mut total: u64 = 0;
-    for entry in pinkbin_walker(dir).into_iter().flatten() {
+    for entry in saodiseng_walker(dir).into_iter().flatten() {
         if !entry.file_type().is_file() {
             continue;
         }
@@ -919,8 +919,8 @@ fn execute_plan(
 /// recommendation flags pre-computed in the backend per design doc §6.5.
 /// Frontend never has to recompute the dormancy heuristic.
 #[tauri::command]
-async fn list_steam_games() -> Result<pinkbin_steam_inspector::SteamInventory, String> {
-    tokio::task::spawn_blocking(pinkbin_steam_inspector::inspect)
+async fn list_steam_games() -> Result<saodiseng_steam_inspector::SteamInventory, String> {
+    tokio::task::spawn_blocking(saodiseng_steam_inspector::inspect)
         .await
         .map_err(|e| e.to_string())?
         .map_err(|e| format!("steam inspect failed: {e:#}"))
@@ -934,9 +934,9 @@ async fn list_steam_games() -> Result<pinkbin_steam_inspector::SteamInventory, S
 async fn list_steam_workshop_items(
     library_root: String,
     appid: u32,
-) -> Result<Vec<pinkbin_steam_inspector::WorkshopItem>, String> {
+) -> Result<Vec<saodiseng_steam_inspector::WorkshopItem>, String> {
     let path = PathBuf::from(library_root);
-    tokio::task::spawn_blocking(move || pinkbin_steam_inspector::list_workshop_items(&path, appid))
+    tokio::task::spawn_blocking(move || saodiseng_steam_inspector::list_workshop_items(&path, appid))
         .await
         .map_err(|e| e.to_string())?
         .map_err(|e| format!("workshop scan failed: {e:#}"))
@@ -1307,7 +1307,7 @@ pub fn run() {
             let data_dir = app
                 .path()
                 .app_data_dir()
-                .unwrap_or_else(|_| PathBuf::from(".pinkbin"));
+                .unwrap_or_else(|_| PathBuf::from(".saodiseng"));
             std::fs::create_dir_all(&data_dir).ok();
             let undo_log = data_dir.join("undo.jsonl");
             let quarantine_root = data_dir.join("quarantine");
@@ -1404,14 +1404,14 @@ mod tests {
     use super::*;
     use std::fs;
 
-    /// Verifies `pinkbin_walker` skips system trash / volume metadata directories
+    /// Verifies `saodiseng_walker` skips system trash / volume metadata directories
     /// at directory-read time. Without this prune a scope glob with a leading
     /// `**` (literal_separator=false makes `**` cross `/`) can match files
     /// inside `$Recycle.Bin/<SID>/$R*/...` because Windows preserves the
     /// original directory tree there — meaning a "clean WeChat cache" preview
     /// would list files the user already chose to put in the trash.
     #[test]
-    fn pinkbin_walker_skips_system_trash_dirs() {
+    fn saodiseng_walker_skips_system_trash_dirs() {
         let tmp = tempfile::tempdir().unwrap();
         let root = tmp.path();
 
@@ -1430,7 +1430,7 @@ mod tests {
             fs::write(d.join("inside.txt"), b"x").unwrap();
         }
 
-        let mut files: Vec<String> = pinkbin_walker(root)
+        let mut files: Vec<String> = saodiseng_walker(root)
             .into_iter()
             .flatten()
             .filter(|e| e.file_type().is_file())
@@ -1456,14 +1456,14 @@ mod tests {
     }
 
     #[test]
-    fn pinkbin_walker_prune_is_case_insensitive() {
+    fn saodiseng_walker_prune_is_case_insensitive() {
         let tmp = tempfile::tempdir().unwrap();
         let root = tmp.path();
         let lower = root.join("$recycle.bin");
         fs::create_dir_all(&lower).unwrap();
         fs::write(lower.join("inside.txt"), b"x").unwrap();
 
-        let leaked = pinkbin_walker(root)
+        let leaked = saodiseng_walker(root)
             .into_iter()
             .flatten()
             .any(|e| e.file_type().is_file());

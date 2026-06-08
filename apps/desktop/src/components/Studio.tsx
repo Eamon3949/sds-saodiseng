@@ -70,7 +70,7 @@ export function Studio() {
   const [openTool, setOpenTool] = useState<null | 'steam-inspector'>(null);
 
   const hidden = (() => {
-    try { return localStorage.getItem('pinkbin.hideStudio') === '1'; } catch { return false; }
+    try { return localStorage.getItem('saodiseng.hideStudio') === '1'; } catch { return false; }
   })();
 
   const allCards: CardData[] = useMemo(() => {
@@ -102,7 +102,7 @@ export function Studio() {
       <div className="studio">
         <div className="studio-head">
           <span>Studio</span>
-          <span className="muted small">已隐藏（pinkbin.hideStudio=1）</span>
+          <span className="muted small">已隐藏（saodiseng.hideStudio=1）</span>
         </div>
       </div>
     );
@@ -268,8 +268,8 @@ function Card({ card, expanded, onToggle, onAsk }: { card: CardData; expanded: b
                       className="studio-detail-path"
                       draggable
                       onDragStart={(e) => {
-                        e.dataTransfer.setData('application/x-pinkbin-path', m.path);
-                        e.dataTransfer.setData('application/x-pinkbin-name', m.name);
+                        e.dataTransfer.setData('application/x-saodiseng-path', m.path);
+                        e.dataTransfer.setData('application/x-saodiseng-name', m.name);
                         e.dataTransfer.effectAllowed = 'copy';
                       }}
                       onContextMenu={(e) => openCtx(e, m.path)}
@@ -316,8 +316,8 @@ function Card({ card, expanded, onToggle, onAsk }: { card: CardData; expanded: b
                         key={c.path}
                         draggable
                         onDragStart={(e) => {
-                          e.dataTransfer.setData('application/x-pinkbin-path', c.path);
-                          e.dataTransfer.setData('application/x-pinkbin-name', c.name);
+                          e.dataTransfer.setData('application/x-saodiseng-path', c.path);
+                          e.dataTransfer.setData('application/x-saodiseng-name', c.name);
                           e.dataTransfer.effectAllowed = 'copy';
                         }}
                         onContextMenu={(e) => openCtx(e, c.path)}

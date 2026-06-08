@@ -10,7 +10,7 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
-# Pinkbin only ships Windows. CI runs entirely on windows-latest to avoid
+# SDS扫地僧 only ships Windows. CI runs entirely on windows-latest to avoid
 # spending time on Linux/macOS dead-code warnings for Windows-only helpers
 # (registry reads, NTFS MFT, system proxy parsing, $Recycle.Bin pruning).
 
@@ -42,7 +42,7 @@ jobs:
       # bash so the scaffolds/*.toml glob is expanded by the shell
       # (Windows cmd/PowerShell would pass the literal pattern verbatim).
       - shell: bash
-        run: cargo run -p pinkbin-scaffold-lint -- scaffolds/*.toml
+        run: cargo run -p saodiseng-scaffold-lint -- scaffolds/*.toml
 
   frontend:
     runs-on: windows-latest

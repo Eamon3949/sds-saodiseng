@@ -10,7 +10,7 @@ import { formatBytes } from '../format';
 /// trip entirely. This is what makes the demo robust against flaky
 /// connectivity to api.steampowered.com from mainland China: once you've
 /// fetched successfully even once, every subsequent run is offline-clean.
-const CACHE_KEY = 'pinkbin.workshopTitles';
+const CACHE_KEY = 'saodiseng.workshopTitles';
 
 function readTitleCache(): Record<number, string> {
   try {

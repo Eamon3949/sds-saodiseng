@@ -288,7 +288,7 @@ export async function advise(req: AdvisorRequest): Promise<AdvisorResponse> {
     try {
       return await callAdvisor(settings, req);
     } catch (e) {
-      console.warn('[pinkbin] real advisor failed, falling back to canned response:', e);
+      console.warn('[saodiseng] real advisor failed, falling back to canned response:', e);
       // fall through to canned mock
     }
   }

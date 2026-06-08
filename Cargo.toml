@@ -13,7 +13,7 @@ members = [
 [workspace.package]
 edition    = "2021"
 license    = "MIT"
-repository = "https://github.com/cccyd2003-qwq/pinkbin"
+repository = "https://github.com/Eamon3949/sds-saodiseng"
 version    = "0.1.2"
 
 [workspace.dependencies]

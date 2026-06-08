@@ -297,14 +297,14 @@ export function ChatPanel() {
     e.preventDefault();
     setDropping(false);
     // Image file drop (from filesystem / browser): take precedence over the
-    // internal Pinkbin path drop, since paths come with our custom mime type.
+    // internal SDS扫地僧 path drop, since paths come with our custom mime type.
     const files = Array.from(e.dataTransfer.files ?? []).filter((f) => f.type.startsWith('image/'));
     if (files.length > 0) {
       for (const f of files) await addImageFile(f);
       return;
     }
-    const path = e.dataTransfer.getData('application/x-pinkbin-path');
-    const name = e.dataTransfer.getData('application/x-pinkbin-name') || path.split(/[\\/]/).pop() || path;
+    const path = e.dataTransfer.getData('application/x-saodiseng-path');
+    const name = e.dataTransfer.getData('application/x-saodiseng-name') || path.split(/[\\/]/).pop() || path;
     if (!path) return;
     // Just stage a pending pill — do NOT reset the conversation or refocus the
     // chat node. The user keeps one continuous conversation and asks across
@@ -335,7 +335,7 @@ export function ChatPanel() {
         <Sparkles size={15} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div className="chat-title">
-            {root ? (root.name || root.path) : 'Pinkbin AI'}
+            {root ? (root.name || root.path) : 'SDS扫地僧 AI'}
           </div>
           <div className="chat-sub">
             {root
@@ -352,7 +352,7 @@ export function ChatPanel() {
         {empty && !root && (
           <div className="chat-hero">
             <MessageSquare size={32} />
-            <h3>Pinkbin AI</h3>
+            <h3>SDS扫地僧 AI</h3>
             <p>选一个磁盘 → 点扫描 → AI 自动给整体解析。<br />扫完之后，可以把左边的任意文件 / 文件夹拖进来问。</p>
             {!isTauri && <p className="muted">浏览器预览模式：扫描数据是模拟的，但 AI 会走真实接口。</p>}
           </div>

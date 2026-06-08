@@ -1,5 +1,5 @@
 [package]
-name        = "pinkbin-scaffold"
+name        = "saodiseng-scaffold"
 version.workspace     = true
 edition.workspace     = true
 license.workspace     = true

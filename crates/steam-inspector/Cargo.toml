@@ -1,5 +1,5 @@
 [package]
-name        = "pinkbin-steam-inspector"
+name        = "saodiseng-steam-inspector"
 version.workspace     = true
 edition.workspace     = true
 license.workspace     = true

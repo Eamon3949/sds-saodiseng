@@ -32,7 +32,7 @@ prompt = { kind = "days", default = 30, label = "Delete cached chat media older 
 
 **现状**：现在 `chat-media-cache` 覆盖 `cache/*/Message/**`（缓存层，重启会重建），**真正接收的图片**走 `wxid_*/msg/image/**`，目前没有 scope 覆盖。
 
-**用户感知**：CleanMyWechat 有"图片"独立项；Pinkbin 用户期望也有，但点不到——只能间接从"Chat media cache"清缓存。
+**用户感知**：CleanMyWechat 有"图片"独立项；SDS扫地僧 用户期望也有，但点不到——只能间接从"Chat media cache"清缓存。
 
 **修复面**：在 `scaffolds/wechat-pc.toml` 加
 ```toml
@@ -68,11 +68,11 @@ prompt = { kind = "days", default = 30, label = "Delete received images older th
 
 ### 4. 路径自定义（用户把 WeChat 数据移到 D 盘）
 
-**现状**：`detect` glob 有 `**/xwechat_files` 兜底，**移到任何盘都能扫到**——这个其实**已经覆盖**。但如果用户把目录**重命名**（不叫 xwechat_files），Pinkbin 就找不到。
+**现状**：`detect` glob 有 `**/xwechat_files` 兜底，**移到任何盘都能扫到**——这个其实**已经覆盖**。但如果用户把目录**重命名**（不叫 xwechat_files），SDS扫地僧 就找不到。
 
 **对比 CleanMyWechat**：UI 上有"+自定义路径"按钮，输入任意路径。
 
-**修复面**：低优先级。可以延后到 v0.3。如果做，是 Studio Card 加"+自定义路径"按钮 → 写入 `localStorage.pinkbin.scaffold_overrides`，scope_sizes / execute_scope 把 override 路径也算进去。
+**修复面**：低优先级。可以延后到 v0.3。如果做，是 Studio Card 加"+自定义路径"按钮 → 写入 `localStorage.saodiseng.scaffold_overrides`，scope_sizes / execute_scope 把 override 路径也算进去。
 
 **估算**：半天，纯前端 + Tauri 多接收一个 root 列表。
 

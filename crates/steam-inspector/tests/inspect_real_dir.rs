@@ -6,7 +6,7 @@
 use std::fs;
 use std::path::Path;
 
-use pinkbin_steam_inspector::{inspect_at_with_clock, SteamInventory};
+use saodiseng_steam_inspector::{inspect_at_with_clock, SteamInventory};
 
 const NOW: u64 = 1_777_000_000; // ~2026-05-01
 

@@ -29,7 +29,7 @@ interface DryRunPreview {
 
 const DRY_RUN_SAMPLE_CAP = 80;
 
-const SCOPE_DAYS_STORAGE_KEY = 'pinkbin.scopeDays';
+const SCOPE_DAYS_STORAGE_KEY = 'saodiseng.scopeDays';
 
 function readScopeDaysAll(): Record<string, Record<string, number>> {
   try {
@@ -344,7 +344,7 @@ export function CleanupModal({ scaffold: sc, matches, onClose, onCleaned }: Prop
           for (const m of matches) {
             tasks.push(
               api.executeScope(sc.id, scopeId, m.path, true, days, wxidFilterArg).catch((e) => {
-                console.warn(`[pinkbin] dry-run ${sc.id}/${scopeId} on ${m.path} failed:`, e);
+                console.warn(`[saodiseng] dry-run ${sc.id}/${scopeId} on ${m.path} failed:`, e);
                 return [] as { source: string }[];
               }),
             );
@@ -409,7 +409,7 @@ export function CleanupModal({ scaffold: sc, matches, onClose, onCleaned }: Prop
             tasks.push(
               api.executeScope(sc.id, scopeId, m.path, false, days, wxidFilterArg).then(
                 (entries) => { totalEntries += entries.length; },
-                (e) => { console.warn(`[pinkbin] executeScope ${sc.id}/${scopeId} on ${m.path} failed:`, e); },
+                (e) => { console.warn(`[saodiseng] executeScope ${sc.id}/${scopeId} on ${m.path} failed:`, e); },
               ),
             );
           }

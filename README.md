@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="apps/desktop/src-tauri/icons/128x128.png" alt="Pinkbin" width="96" height="96">
+<img src="apps/desktop/src-tauri/icons/128x128.png" alt="SDS扫地僧" width="96" height="96">
 
-# Pinkbin
+# SDS扫地僧
 
 **扫盘 · 看懂 · 一条一条删干净。**
 
@@ -23,12 +23,12 @@
 ## 下载
 
 <p align="center">
-  <a href="https://github.com/cccyd2003-qwq/pinkbin/releases/latest"><img src="https://img.shields.io/badge/⬇_下载最新版_(Windows)-ff69b4?style=for-the-badge&logo=windows&logoColor=white" height="42"></a>
+  <a href="https://github.com/Eamon3949/sds-saodiseng/releases/latest"><img src="https://img.shields.io/badge/⬇_下载最新版_(Windows)-ff69b4?style=for-the-badge&logo=windows&logoColor=white" height="42"></a>
 </p>
 
 | 平台 | 文件 | 备注 |
 |---|---|---|
-| **Windows 10 / 11 (x64)** | [`Pinkbin_x.x.x_x64-setup.exe`](https://github.com/cccyd2003-qwq/pinkbin/releases/latest)（NSIS）<br>[`Pinkbin_x.x.x_x64_en-US.msi`](https://github.com/cccyd2003-qwq/pinkbin/releases/latest)（MSI） | 首次启动 SmartScreen 拦截：点"更多信息"→"仍要运行"。NTFS MFT 直读需要管理员权限，安装包带 manifest 自动 UAC |
+| **Windows 10 / 11 (x64)** | [`SDS扫地僧_x.x.x_x64-setup.exe`](https://github.com/Eamon3949/sds-saodiseng/releases/latest)（NSIS）<br>[`SDS扫地僧_x.x.x_x64_en-US.msi`](https://github.com/Eamon3949/sds-saodiseng/releases/latest)（MSI） | 首次启动 SmartScreen 拦截：点"更多信息"→"仍要运行"。NTFS MFT 直读需要管理员权限，安装包带 manifest 自动 UAC |
 
 > macOS / Linux 暂不提供预编译版（macOS 还没有签名证书，Linux 也没在真实机器上验过）。你可以自己 `pnpm tauri build` 编译。等有签名通道 + 真机验证后会把 release 矩阵加回来——欢迎 PR。
 
@@ -52,7 +52,7 @@
 
 ## 三件事
 
-Pinkbin 只做三件事：简单、简单、还是TMD简单
+SDS扫地僧 只做三件事：简单、简单、还是TMD简单
 
 ### 1. 把磁盘空间分配看清楚
 
@@ -62,7 +62,7 @@ Windows 上直读 NTFS Master File Table（其他平台用 jwalk 跨平台 walke
 
 不认识的文件夹？把它从左边树或右边路径**拖进中间聊天框**，AI 解释这是什么、能不能删、删了会丢什么。BYOK——你提供 Anthropic / OpenAI / Gemini 的 Key，或本地跑 Ollama 完全免费。
 
-**Pinkbin 只发目录元数据**给 AI（路径名、大小、文件数、扩展名占比、最多 20 条样本路径）—— **永远不读文件内容**。
+**SDS扫地僧 只发目录元数据**给 AI（路径名、大小、文件数、扩展名占比、最多 20 条样本路径）—— **永远不读文件内容**。
 
 ### 3. 已知应用走专属清理脚本
 
@@ -73,13 +73,13 @@ Windows 上直读 NTFS Master File Table（其他平台用 jwalk 跨平台 walke
 
 **未来会做的**：Steam shadercache · Chrome 缓存 · Docker buildx · HuggingFace 模型 · npm/pnpm/pip cache · OBS 录像 · IDE 索引——大众应用、占空间大、清理边界清楚的，逐个走 14-phase 工作流加进来（含红线集成测试守护）。**为什么砍掉之前那 36 个 legacy scaffold**：因为没人验过 glob 边界，存在误删风险（典型例子：旧版 `node-modules` 把 Cursor / VSCode / 游戏内嵌的 node_modules 也命中了）。
 
-所有删除默认进**系统回收站**，可恢复。每一次操作写 `~/.pinkbin/undo.jsonl`，可选 7 天 quarantine。
+所有删除默认进**系统回收站**，可恢复。每一次操作写 `~/.saodiseng/undo.jsonl`，可选 7 天 quarantine。
 
 ---
 
 ## 怎么用
 
-1. **下载安装包**[（上面）](#下载)，双击安装，桌面出现 Pinkbin 图标
+1. **下载安装包**[（上面）](#下载)，双击安装，桌面出现 SDS扫地僧 图标
 2. **打开 → 右上角 ⚙ 配 AI**——填LLM的API Key
 3. **顶部"选择磁盘或文件夹"→ 点扫描**——2-5 秒后看到 treemap + 树
 4. **遇到陌生大文件夹**——拖到中间聊天框问 AI；或者右侧 Studio 已经认出了的（微信、conda）直接看清理面板
@@ -112,7 +112,7 @@ Windows 上直读 NTFS Master File Table（其他平台用 jwalk 跨平台 walke
 | 后端 | Rust workspace（4 crates）+ Tauri IPC |
 | 扫描器 | Windows: NTFS MFT 直读（`ntfs` crate）/ 跨平台: `jwalk` |
 | AI | BYOK · Anthropic · OpenAI · Gemini · Ollama 四协议 |
-| 数据 | 用户本机 `~/.pinkbin/`（undo.jsonl + quarantine/）· 不上云 |
+| 数据 | 用户本机 `~/.saodiseng/`（undo.jsonl + quarantine/）· 不上云 |
 
 ---
 
@@ -146,7 +146,7 @@ Windows 上直读 NTFS Master File Table（其他平台用 jwalk 跨平台 walke
 ### 开发
 
 ```bash
-git clone https://github.com/cccyd2003-qwq/pinkbin.git && cd pinkbin
+git clone https://github.com/Eamon3949/sds-saodiseng.git && cd saodiseng
 pnpm install
 pnpm tauri dev            # 桌面 app（首次会编译 Rust 依赖，5-15 分钟）
 pnpm -C apps/desktop dev  # 仅前端，浏览器调试，mock 后端

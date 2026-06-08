@@ -1,7 +1,7 @@
 // Browser-side AI advisor client — talks to OpenAI / Anthropic / Ollama directly
 // from the browser, so the preview mode can give real answers.
 //
-// Settings persist to localStorage under "pinkbin.advisor".
+// Settings persist to localStorage under "saodiseng.advisor".
 
 import type { AdvisorRequest, AdvisorResponse } from './types';
 
@@ -14,7 +14,7 @@ export interface AdvisorSettings {
   baseUrl: string;
 }
 
-const STORAGE_KEY = 'pinkbin.advisor';
+const STORAGE_KEY = 'saodiseng.advisor';
 
 export function loadSettings(): AdvisorSettings | null {
   try {
@@ -36,7 +36,7 @@ export function clearSettings() {
   localStorage.removeItem(STORAGE_KEY);
 }
 
-const SYSTEM_PROMPT = `You are Pinkbin's local file advisor. Given a folder's metadata, decide what it is and whether it can be cleaned. Reply in strict JSON ONLY, matching this schema exactly:
+const SYSTEM_PROMPT = `You are SDS扫地僧's local file advisor. Given a folder's metadata, decide what it is and whether it can be cleaned. Reply in strict JSON ONLY, matching this schema exactly:
 
 {
   "what": "string",
@@ -179,9 +179,9 @@ export function isConfigured(s: AdvisorSettings | null): s is AdvisorSettings {
   return Boolean(s.apiKey && s.model);
 }
 
-const CHAT_SYSTEM = `You are Pinkbin's AI advisor — a friendly assistant that helps users figure out what their disk folders are and whether to delete them. Use the metadata you are given (the user's question references a folder by its path, size, samples). Be concise (2-4 sentences), in the user's language. If you suggest deleting, say what to delete (the whole folder vs a sub-scope) and via what mechanism (回收站 / 手动整理 / 卸载应用). Never recommend rm -rf on system paths.`;
+const CHAT_SYSTEM = `You are SDS扫地僧's AI advisor — a friendly assistant that helps users figure out what their disk folders are and whether to delete them. Use the metadata you are given (the user's question references a folder by its path, size, samples). Be concise (2-4 sentences), in the user's language. If you suggest deleting, say what to delete (the whole folder vs a sub-scope) and via what mechanism (回收站 / 手动整理 / 卸载应用). Never recommend rm -rf on system paths.`;
 
-const OVERVIEW_SYSTEM = `You are Pinkbin's AI advisor. The user just finished scanning their disk. You receive a JSON summary of the largest folders. Write a friendly Chinese overview (~180-220 字) covering, in order, with empty lines between sections:
+const OVERVIEW_SYSTEM = `You are SDS扫地僧's AI advisor. The user just finished scanning their disk. You receive a JSON summary of the largest folders. Write a friendly Chinese overview (~180-220 字) covering, in order, with empty lines between sections:
 
 【整体】 一句话概括磁盘的整体结构（操作系统 / 用户数据 / 应用 各占多少）。
 
