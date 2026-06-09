@@ -1,31 +1,31 @@
-/* SDS扫地僧 — Tech-pink theme.
+/* SDS扫地僧 — Zen-gold theme.
    Mono-flavored display font, hard offset shadows, bold ink borders. */
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  --ink:        #150818;
-  --ink-2:      #4a3742;
-  --ink-3:      #7a6675;
+  --ink:        #2C1810;
+  --ink-2:      #5C4830;
+  --ink-3:      #8C7860;
 
-  --paper:      #fff5f8;
-  --paper-2:    #ffe6ee;
-  --paper-3:    #ffd5e2;
-  --card:       #ffffff;
+  --paper:      #FFFDF5;
+  --paper-2:    #FFF8E7;
+  --paper-3:    #FFF0D0;
+  --card:       #FFFFFF;
 
-  --pink:       #ff6fa8;
-  --pink-deep:  #e23f86;
-  --pink-soft:  #ffd0e0;
-  --pink-bg:    #ffeaf2;
+  --gold:       #D4A017;
+  --gold-deep:  #8B6914;
+  --gold-soft:  #F5E6B8;
+  --gold-bg:    #FFFBF0;
 
-  --lavender:   #c9b6ff;
-  --mint:       #a8e6c4;
-  --peach:      #ffb37a;
-  --sun:        #ffe066;
+  --amber:      #D97706;
+  --sage:       #84A98C;
+  --terracotta: #C08457;
+  --sun:        #FCD34D;
 
-  --ok:    #ff6fa8;
-  --warn:  #ff9f5e;
-  --err:   #ff3b5c;
+  --ok:    #D4A017;
+  --warn:  #D97706;
+  --err:   #B91C1C;
 
   --line:  var(--ink);
   --shadow-sm: 3px 3px 0 var(--ink);
@@ -43,8 +43,8 @@
 html, body, #root { height: 100%; margin: 0; }
 body {
   background:
-    radial-gradient(circle at 0% 0%, rgba(255, 111, 168, 0.18) 0%, transparent 35%),
-    radial-gradient(circle at 100% 100%, rgba(201, 182, 255, 0.18) 0%, transparent 35%),
+    radial-gradient(circle at 0% 0%, rgba(212, 160, 23, 0.18) 0%, transparent 35%),
+    radial-gradient(circle at 100% 100%, rgba(139, 105, 20, 0.18) 0%, transparent 35%),
     var(--paper);
   color: var(--ink);
   font-size: 13px;
@@ -56,8 +56,8 @@ button { font: inherit; font-weight: 600; font-family: var(--font-sans); }
 code, .mono {
   font-family: var(--font-mono);
   font-size: 11.5px;
-  color: var(--pink-deep);
-  background: var(--pink-bg);
+  color: var(--gold-deep);
+  background: var(--gold-bg);
   border: 2px solid var(--ink);
   padding: 1px 5px;
   border-radius: 4px;
@@ -78,7 +78,7 @@ code, .mono {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   letter-spacing: 0;
   margin-left: 4px;
 }
@@ -123,7 +123,7 @@ header {
 
 /* ── Buttons ───────────────────────────────────────────────────────── */
 button.primary {
-  background: var(--pink);
+  background: var(--gold);
   color: var(--ink);
   border: 2.5px solid var(--ink);
   padding: 8px 14px;
@@ -177,7 +177,7 @@ button.ghost {
   transition: transform .08s ease, box-shadow .08s ease, background .08s ease;
 }
 button.ghost:hover:not(:disabled) {
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   transform: translate(-1px, -1px);
   box-shadow: var(--shadow);
 }
@@ -216,7 +216,7 @@ input:focus, select:focus {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--pink-deep);
+  background: var(--gold-deep);
   border: 1.5px solid var(--ink);
   box-shadow: 1px 1px 0 var(--ink);
 }
@@ -250,8 +250,8 @@ input:focus, select:focus {
   background:
     repeating-linear-gradient(
       45deg,
-      var(--pink) 0 12px,
-      var(--pink-deep) 12px 24px
+      var(--gold) 0 12px,
+      var(--gold-deep) 12px 24px
     );
   border-right: 2px solid var(--ink);
   transition: width .2s ease;
@@ -343,7 +343,7 @@ aside.right { background: var(--paper); }
   flex-shrink: 0;
   transition: background .12s;
 }
-.splitter:hover, .splitter:active { background: var(--pink-deep); }
+.splitter:hover, .splitter:active { background: var(--gold-deep); }
 .splitter > span {
   position: absolute;
   inset: 0 -4px;
@@ -358,7 +358,7 @@ section.center {
 aside::-webkit-scrollbar { width: 12px; }
 aside::-webkit-scrollbar-track { background: var(--paper-3); border-left: 2.5px solid var(--ink); }
 aside::-webkit-scrollbar-thumb {
-  background: var(--pink);
+  background: var(--gold);
   border: 2.5px solid var(--ink);
   border-radius: 0;
 }
@@ -386,11 +386,11 @@ aside::-webkit-scrollbar-thumb {
   box-shadow: 2px 2px 0 var(--ink);
   transition: transform .08s, box-shadow .08s, background .08s;
 }
-.breadcrumb .tab:hover { background: var(--pink-bg); }
-.breadcrumb .tab.active { background: var(--pink); }
+.breadcrumb .tab:hover { background: var(--gold-bg); }
+.breadcrumb .tab.active { background: var(--gold); }
 .breadcrumb .grow { flex: 1; }
 .breadcrumb .size {
-  background: var(--pink);
+  background: var(--gold);
   color: var(--ink);
   border: 2px solid var(--ink);
   padding: 2px 10px;
@@ -476,7 +476,7 @@ aside::-webkit-scrollbar-thumb {
   content: "";
   position: absolute; inset: 0;
   background:
-    repeating-linear-gradient(45deg, transparent 0 14px, rgba(255, 111, 168, 0.04) 14px 15px);
+    repeating-linear-gradient(45deg, transparent 0 14px, rgba(212, 160, 23, 0.04) 14px 15px);
   pointer-events: none;
 }
 .treemap text { user-select: none; pointer-events: none; }
@@ -524,12 +524,12 @@ aside::-webkit-scrollbar-thumb {
   height: 22px;
   cursor: pointer;
   font-weight: 500;
-  border-bottom: 1px solid #f4dde7;
+  border-bottom: 1px solid #E8D9B8;
   transition: background .06s;
 }
-.tree-row:hover { background: var(--pink-bg); }
+.tree-row:hover { background: var(--gold-bg); }
 .tree-row.selected {
-  background: var(--pink);
+  background: var(--gold);
   color: var(--ink);
   font-weight: 600;
 }
@@ -594,7 +594,7 @@ aside::-webkit-scrollbar-thumb {
 .tree-row .pct-bar > span {
   display: block;
   height: 100%;
-  background: var(--pink);
+  background: var(--gold);
 }
 .tree-row.selected .pct-bar { border-color: var(--ink); }
 .tree-row.selected .pct-bar > span { background: var(--ink); }
@@ -685,7 +685,7 @@ footer {
 }
 .card-meta strong {
   color: var(--ink);
-  background: var(--pink);
+  background: var(--gold);
   border: 2px solid var(--ink);
   padding: 1px 8px;
   border-radius: 999px;
@@ -694,7 +694,7 @@ footer {
 
 .card-what {
   font-size: 13px;
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   border: 2px solid var(--ink);
   padding: 8px 12px;
   border-radius: 8px;
@@ -733,7 +733,7 @@ footer {
 .scope-row { display: flex; align-items: center; gap: 8px; cursor: pointer; }
 .scope-row input[type="checkbox"] {
   width: 16px; height: 16px;
-  accent-color: var(--pink);
+  accent-color: var(--gold);
   border: 2px solid var(--ink);
 }
 .scope-label { flex: 1; font-weight: 700; }
@@ -783,7 +783,7 @@ footer {
 /* ── Modal ─────────────────────────────────────────────────────────── */
 .modal-bg {
   position: fixed; inset: 0;
-  background: rgba(255, 234, 242, 0.85);
+  background: rgba(255, 251, 240, 0.85);
   backdrop-filter: blur(3px);
   display: flex; align-items: center; justify-content: center;
   z-index: 50;
@@ -829,13 +829,13 @@ footer {
   transition: background .08s;
 }
 .seg-opt:last-child { border-right: 0; }
-.seg-opt:hover { background: var(--pink-bg); }
-.seg-opt.active { background: var(--pink); color: var(--ink); }
+.seg-opt:hover { background: var(--gold-bg); }
+.seg-opt.active { background: var(--gold); color: var(--ink); }
 
 .hint {
   margin: 0;
   padding: 8px 12px;
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   border: 2px solid var(--ink);
   border-radius: 8px;
   font-size: 12px;
@@ -847,9 +847,9 @@ footer {
   line-height: 1.5;
   box-shadow: 2px 2px 0 var(--ink);
 }
-.hint svg { flex-shrink: 0; margin-top: 2px; color: var(--pink-deep); }
+.hint svg { flex-shrink: 0; margin-top: 2px; color: var(--gold-deep); }
 .hint > span { flex: 1; min-width: 0; }
-.hint a { color: var(--pink-deep); font-weight: 700; }
+.hint a { color: var(--gold-deep); font-weight: 700; }
 .hint code {
   background: var(--card);
   padding: 0 4px;
@@ -882,15 +882,15 @@ footer {
   font-weight: 600;
   display: flex; align-items: center; gap: 8px;
 }
-.ctxmenu-item:hover { background: var(--pink-bg); }
+.ctxmenu-item:hover { background: var(--gold-bg); }
 .ctxmenu-item.danger { color: #c43358; }
-.ctxmenu-item.danger:hover { background: #ffd9e3; }
-.ctxmenu-icon { display: inline-flex; align-items: center; color: var(--pink-deep); }
+.ctxmenu-item.danger:hover { background: #FFF0D0; }
+.ctxmenu-icon { display: inline-flex; align-items: center; color: var(--gold-deep); }
 
 .spin { animation: spin 1.2s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-::selection { background: var(--pink); color: var(--ink); }
+::selection { background: var(--gold); color: var(--ink); }
 
 /* ── Studio (right panel) ──────────────────────────────────────────── */
 .studio {
@@ -943,16 +943,16 @@ footer {
 .studio-card:hover {
   transform: translate(-2px, -2px);
   box-shadow: var(--shadow);
-  background: var(--pink-bg);
+  background: var(--gold-bg);
 }
 .studio-card:active {
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--ink);
 }
 .studio-card.detected {
-  background: linear-gradient(180deg, var(--pink-bg) 0%, var(--card) 100%);
+  background: linear-gradient(180deg, var(--gold-bg) 0%, var(--card) 100%);
 }
-.studio-card.detected .studio-card-meta { color: var(--pink-deep); }
+.studio-card.detected .studio-card-meta { color: var(--gold-deep); }
 .studio-card.risk-high { border-color: var(--err); }
 .studio-card-icon {
   font-size: 22px;
@@ -1018,7 +1018,7 @@ footer {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
-.studio-card-wrap.detected { background: linear-gradient(180deg, var(--pink-bg) 0%, var(--card) 100%); }
+.studio-card-wrap.detected { background: linear-gradient(180deg, var(--gold-bg) 0%, var(--card) 100%); }
 .studio-card-wrap.risk-high { border-color: var(--err); }
 .studio-card-wrap > .studio-card {
   border: 0;
@@ -1027,7 +1027,7 @@ footer {
   background: transparent;
   width: 100%;
 }
-.studio-card-wrap > .studio-card:hover { background: var(--pink-bg); transform: none; }
+.studio-card-wrap > .studio-card:hover { background: var(--gold-bg); transform: none; }
 .studio-card-wrap > .studio-card:active { transform: none; box-shadow: none; }
 .studio-caret { color: var(--ink-3); flex-shrink: 0; }
 
@@ -1079,7 +1079,7 @@ footer {
   cursor: grab;
   font-size: 11.5px;
 }
-.studio-children li:hover { background: var(--pink-bg); }
+.studio-children li:hover { background: var(--gold-bg); }
 .studio-children li:active { cursor: grabbing; }
 .studio-child-name {
   font-family: var(--font-mono);
@@ -1120,7 +1120,7 @@ footer {
 }
 .cleanup-paths {
   display: flex; flex-direction: column; gap: 3px;
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   border: 2px solid var(--ink);
   border-radius: 8px;
   padding: 7px 10px;
@@ -1173,10 +1173,10 @@ footer {
   border: 1.5px solid transparent;
   background: var(--paper);
 }
-.cleanup-row:hover { background: var(--pink-bg); }
+.cleanup-row:hover { background: var(--gold-bg); }
 .cleanup-row.checked {
-  background: var(--pink-bg);
-  border-color: var(--pink-deep);
+  background: var(--gold-bg);
+  border-color: var(--gold-deep);
 }
 .cleanup-row.empty { opacity: 0.5; }
 .cleanup-row-main {
@@ -1186,7 +1186,7 @@ footer {
 }
 .cleanup-row-main input[type="checkbox"] {
   width: 14px; height: 14px;
-  accent-color: var(--pink-deep);
+  accent-color: var(--gold-deep);
 }
 .cleanup-row-text {
   display: flex; flex-direction: column; gap: 1px;
@@ -1223,7 +1223,7 @@ footer {
   font-size: 11.5px; font-family: var(--font-mono);
   cursor: pointer; user-select: none;
 }
-.cleanup-wxid-chip input { accent-color: var(--pink-deep); }
+.cleanup-wxid-chip input { accent-color: var(--gold-deep); }
 .cleanup-disclaimer {
   margin: 2px 0;
   font-size: 11px;
@@ -1340,7 +1340,7 @@ footer {
   border-radius: 6px;
   font-size: 11.5px;
 }
-.studio-scope-row:hover { background: var(--pink-bg); }
+.studio-scope-row:hover { background: var(--gold-bg); }
 .studio-scope-row.empty { opacity: 0.45; }
 .studio-scope-row.bulk {
   background: var(--paper-2);
@@ -1397,16 +1397,16 @@ footer {
   content: "拖到这里把它发给 AI";
   position: absolute;
   inset: 8px;
-  border: 4px dashed var(--pink-deep);
+  border: 4px dashed var(--gold-deep);
   border-radius: 14px;
-  background: rgba(255, 208, 224, 0.6);
+  background: rgba(245, 230, 184, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 16px;
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   z-index: 5;
   pointer-events: none;
 }
@@ -1418,7 +1418,7 @@ footer {
   border-bottom: 2.5px solid var(--ink);
   background: var(--paper-2);
 }
-.chat-head > svg { color: var(--pink-deep); }
+.chat-head > svg { color: var(--gold-deep); }
 .chat-title {
   font-family: var(--font-mono);
   font-weight: 700;
@@ -1449,7 +1449,7 @@ footer {
   text-align: center;
   border: 3px dashed var(--ink);
   border-radius: 16px;
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   max-width: 480px;
   display: grid;
   gap: 8px;
@@ -1493,7 +1493,7 @@ footer {
   padding: 12px 16px;
   border: 2px solid var(--ink);
   border-radius: 16px 16px 4px 16px;
-  background: var(--pink);
+  background: var(--gold);
   color: var(--ink);
   box-shadow: var(--shadow-sm);
   white-space: pre-wrap;
@@ -1507,12 +1507,12 @@ footer {
   width: 100%;
   padding: 14px 18px 14px 22px;
   border: 1px solid rgba(21, 8, 24, 0.08);
-  border-left: 3px solid var(--pink);
+  border-left: 3px solid var(--gold);
   border-radius: 4px 14px 14px 14px;
   background: linear-gradient(180deg, #ffffff 0%, #fffafc 100%);
   box-shadow:
     0 1px 0 rgba(21, 8, 24, 0.02),
-    0 6px 18px -10px rgba(226, 63, 134, 0.12);
+    0 6px 18px -10px rgba(139, 105, 20, 0.12);
   color: var(--ink-2);
 }
 
@@ -1556,7 +1556,7 @@ footer {
 .chat-turn.assistant .chat-bubble h2 {
   font-size: 15.5px;
   padding-bottom: 4px;
-  border-bottom: 1px solid rgba(226, 63, 134, 0.12);
+  border-bottom: 1px solid rgba(139, 105, 20, 0.12);
 }
 .chat-turn.assistant .chat-bubble h3 {
   font-size: 14px;
@@ -1569,7 +1569,7 @@ footer {
   display: inline-block;
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: var(--pink);
+  background: var(--gold);
   flex-shrink: 0;
 }
 .chat-turn.assistant .chat-bubble h4 { font-size: 13px; color: var(--ink-2); }
@@ -1578,7 +1578,7 @@ footer {
 .chat-turn.assistant .chat-bubble strong {
   font-weight: 650;
   color: var(--ink);
-  background: linear-gradient(180deg, transparent 60%, rgba(226, 63, 134, 0.14) 60%);
+  background: linear-gradient(180deg, transparent 60%, rgba(139, 105, 20, 0.14) 60%);
   padding: 0 1px;
 }
 .chat-turn.assistant .chat-bubble em { font-style: italic; color: var(--ink-2); }
@@ -1602,7 +1602,7 @@ footer {
   left: 8px; top: 0.7em;
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: var(--pink);
+  background: var(--gold);
   opacity: 0.85;
 }
 .chat-turn.assistant .chat-bubble ol {
@@ -1616,7 +1616,7 @@ footer {
   position: absolute;
   left: 0; top: 0;
   font-weight: 650;
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   font-variant-numeric: tabular-nums;
   font-size: 12px;
   line-height: 1.78;
@@ -1632,13 +1632,13 @@ footer {
 
 /* Inline code — soft pink chip */
 .chat-turn.assistant .chat-bubble code {
-  background: var(--pink-bg);
-  border: 1px solid rgba(226, 63, 134, 0.18);
+  background: var(--gold-bg);
+  border: 1px solid rgba(139, 105, 20, 0.18);
   border-radius: 4px;
   padding: 1px 6px;
   font-family: var(--font-mono, ui-monospace, "JetBrains Mono", "SFMono-Regular", Consolas, monospace);
   font-size: 12px;
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   font-weight: 500;
   white-space: nowrap;
 }
@@ -1646,7 +1646,7 @@ footer {
 /* Code blocks — dark editorial card with pink language tag */
 .chat-turn.assistant .chat-bubble pre {
   position: relative;
-  background: #1a1220;
+  background: #2C1810;
   border: none;
   border-radius: 10px;
   padding: 14px 16px;
@@ -1660,7 +1660,7 @@ footer {
   background: transparent;
   border: none;
   padding: 0;
-  color: #f5e8ee;
+  color: #F5E6B8;
   white-space: pre;
   font-weight: 400;
 }
@@ -1669,8 +1669,8 @@ footer {
 .chat-turn.assistant .chat-bubble blockquote {
   margin: 10px 0 14px;
   padding: 8px 14px;
-  border-left: 3px solid var(--pink);
-  background: var(--pink-bg);
+  border-left: 3px solid var(--gold);
+  background: var(--gold-bg);
   border-radius: 0 8px 8px 0;
   color: var(--ink-2);
   font-style: normal;
@@ -1679,18 +1679,18 @@ footer {
 
 /* Links */
 .chat-turn.assistant .chat-bubble a {
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   text-decoration: none;
-  border-bottom: 1px solid rgba(226, 63, 134, 0.4);
+  border-bottom: 1px solid rgba(139, 105, 20, 0.4);
   transition: border-color 120ms ease;
 }
-.chat-turn.assistant .chat-bubble a:hover { border-bottom-color: var(--pink-deep); }
+.chat-turn.assistant .chat-bubble a:hover { border-bottom-color: var(--gold-deep); }
 
 /* Horizontal rules */
 .chat-turn.assistant .chat-bubble hr {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(226, 63, 134, 0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgba(139, 105, 20, 0.25), transparent);
   margin: 16px 0;
 }
 
@@ -1713,15 +1713,15 @@ footer {
 }
 .chat-turn.assistant .chat-bubble tr:last-child td { border-bottom: none; }
 .chat-turn.assistant .chat-bubble th {
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   font-weight: 650;
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   font-size: 11.5px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 .chat-turn.assistant .chat-bubble tr:nth-child(even) td {
-  background: rgba(255, 234, 242, 0.35);
+  background: rgba(255, 251, 240, 0.35);
 }
 .chat-actions {
   display: flex;
@@ -1767,7 +1767,7 @@ footer {
   padding: 3px 4px 3px 10px;
   border: 2px solid var(--ink);
   border-radius: 999px;
-  background: var(--pink);
+  background: var(--gold);
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
@@ -1852,7 +1852,7 @@ footer {
   cursor: pointer;
   padding: 0;
 }
-.chat-image-pill button:hover { background: #ffd5e1; }
+.chat-image-pill button:hover { background: #FFF0D0; }
 
 /* ===== Tool card (Studio "工具" section) ============================ */
 
@@ -1993,7 +1993,7 @@ footer {
 }
 .steam-workshop-sortbtn:hover { background: var(--paper-2); }
 .steam-workshop-sortbtn.active {
-  background: var(--pink);
+  background: var(--gold);
   color: white;
   border-color: var(--ink);
 }
@@ -2009,7 +2009,7 @@ footer {
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
-.steam-workshop-error { color: var(--err); background: #ffe0e3; }
+.steam-workshop-error { color: var(--err); background: #FEE2E2; }
 
 .steam-workshop-caveat {
   padding: 10px 12px;
@@ -2155,7 +2155,7 @@ footer {
   font-size: 12px;
 }
 .steam-progress { background: var(--paper-2); }
-.steam-teach { background: var(--pink-bg); position: relative; }
+.steam-teach { background: var(--gold-bg); position: relative; }
 .steam-teach b { font-weight: 700; }
 .steam-teach-close {
   margin-left: auto;
@@ -2167,7 +2167,7 @@ footer {
   cursor: pointer; padding: 0;
 }
 .steam-teach-close:hover { background: var(--paper-3); }
-.steam-error { background: #ffe0e3; color: var(--err); font-weight: 600; }
+.steam-error { background: #FEE2E2; color: var(--err); font-weight: 600; }
 
 .steam-body {
   flex: 1;
@@ -2214,7 +2214,7 @@ footer {
   transition: background 0.15s ease;
 }
 .steam-pivot-row:hover { background: var(--paper-3); }
-.steam-pivot-row.active { background: var(--pink-bg); font-weight: 600; }
+.steam-pivot-row.active { background: var(--gold-bg); font-weight: 600; }
 .steam-pivot-row input[type="radio"] { margin: 0; flex-shrink: 0; }
 .steam-pivot-row span { flex: 1; }
 
@@ -2307,7 +2307,7 @@ footer {
   border-color: var(--ink-3);
 }
 .steam-row.recommended {
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   border-left: 4px solid var(--lavender);
   padding-left: 10px;
 }
@@ -2326,7 +2326,7 @@ footer {
   display: flex; align-items: center; justify-content: center;
   color: var(--ink-2);
 }
-.steam-row.recommended .steam-row-icon { color: var(--pink-deep); }
+.steam-row.recommended .steam-row-icon { color: var(--gold-deep); }
 .steam-row.ghost .steam-row-icon { color: var(--warn); }
 
 .steam-row-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -2344,7 +2344,7 @@ footer {
 .steam-row-reason {
   font-size: 10.5px;
   font-weight: 500;
-  color: var(--pink-deep);
+  color: var(--gold-deep);
   margin-top: 2px;
 }
 .steam-row.ghost .steam-row-reason { color: var(--warn); }
@@ -2420,11 +2420,11 @@ footer {
 .steam-detail-reason {
   display: flex; align-items: flex-start; gap: 8px;
   padding: 10px 12px;
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   border: 2px solid var(--lavender);
   border-radius: 10px;
 }
-.steam-detail-reason > svg { color: var(--pink-deep); flex-shrink: 0; margin-top: 2px; }
+.steam-detail-reason > svg { color: var(--gold-deep); flex-shrink: 0; margin-top: 2px; }
 .steam-detail-reason b { display: block; font-size: 12px; color: var(--ink); margin-bottom: 2px; }
 .steam-detail-reason p { font-size: 12px; color: var(--ink-2); margin: 0; }
 
@@ -2488,11 +2488,11 @@ footer {
 .steam-action:active { transform: none; box-shadow: none; }
 .steam-action span { flex: 1; }
 .steam-action-primary {
-  background: var(--pink);
+  background: var(--gold);
   color: white;
   border-color: var(--ink);
 }
-.steam-action-primary:hover { background: var(--pink-deep); }
+.steam-action-primary:hover { background: var(--gold-deep); }
 .steam-action-primary .steam-kbd { background: white; color: var(--ink); }
 
 /* ----- Empty / not-found states ----- */
@@ -2563,9 +2563,9 @@ footer {
   width: 0%;
   background: linear-gradient(
     90deg,
-    var(--pink-deep) 0%,
-    var(--pink) 50%,
-    var(--pink-deep) 100%
+    var(--gold-deep) 0%,
+    var(--gold) 50%,
+    var(--gold-deep) 100%
   );
   background-size: 200% 100%;
   transition: width 0.18s ease-out, background-color 0.2s ease;
@@ -2583,7 +2583,7 @@ footer {
 .progress-button.is-progressing {
   opacity: 1;
   cursor: progress;
-  background: var(--pink-bg);
+  background: var(--gold-bg);
   color: var(--ink);
 }
 .progress-button.is-progressing:disabled {
@@ -2594,7 +2594,7 @@ footer {
 }
 .progress-button.is-success .progress-button-fill {
   animation: none;
-  background: var(--pink-deep);
+  background: var(--gold-deep);
 }
 .progress-button.is-error .progress-button-fill {
   animation: none;

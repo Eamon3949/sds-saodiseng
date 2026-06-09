@@ -1,39 +1,42 @@
-// Same 24×24 pixel design as the .ico, rendered inline so it stays crisp
-// and doesn't pull in a build asset.
+// 24×24 pixel-art: bald monk with a broom (扫地僧).
+// I=ink outline, S=skin, R=robe, G=gold sash, B=broom bristles, H=broom handle
 
 const ROWS = [
   '........................',
   '........................',
-  '..........IIIIII........',
-  '.........I......I.......',
-  '.......IIIIIIIIIIII.....',
-  '......ILLLLLLLLLLLLI....',
-  '......IPPPPPWPPPPPPI....',
-  '......IDDDDDDDDDDDDI....',
   '........................',
-  '.....IIIIIIIIIIIIIIII...',
-  '....ILLLLLLLLLLLLLLLLI..',
-  '....IPPPIIPPPPPIIPPPPI..',
-  '....IPPPIIPPPPPIIPPPPI..',
-  '....IPPPPPPPPPPPPPPPPI..',
-  '....IPPPPPIIIIIIPPPPPI..',
-  '....IPPPPPPIIIIPPPPPPI..',
-  '....IPPPPPPPPPPPPPPPPI..',
-  '....IPPPPPPPPPPPPPPPPI..',
-  '....IPPPPPPPPPPPPPPPPI..',
-  '....IDDDDDDDDDDDDDDDDI..',
-  '.....IIIIIIIIIIIIIIII...',
-  '........................',
+  '.......IIIIIIII.........',
+  '......ISSSSSSSSI........',
+  '.....ISSSSSSSSSI........',
+  '.....ISSISSISSSI........',
+  '.....ISSSSSSSSSI........',
+  '.....ISSSRRRSSSI........',
+  '......ISSSSSSI..........',
+  '.......IIIIII...........',
+  '......IIIRIIII..........',
+  '.....IRRRRRRRRII........',
+  '....IRRRRGRRRRRI........',
+  '....IRRRRGRRRRRI........',
+  '....IRRRRRRRRRRIHH......',
+  '....IRRRRRRRRRRIHBB.....',
+  '....IRRRRRRRRRRIHBBH....',
+  '....IRRRRRRRRRRIHHBB....',
+  '....IDDDDDDDDDDIIBBBB...',
+  '.....IIIIIIIIIIIIHBBB...',
+  '..................IHH...',
   '........................',
   '........................',
 ];
 
 const COLOR: Record<string, string> = {
-  I: '#150818',
-  L: '#ffd0e0',
-  P: '#ff6fa8',
-  D: '#e23f86',
-  W: '#ffffff',
+  I: '#2C1810',   // dark brown ink (matches --ink)
+  S: '#F5D5A8',   // warm skin
+  R: '#8B6914',   // deep gold robe
+  G: '#D4A017',   // bright gold sash
+  D: '#5C4830',   // dark hem
+  H: '#C08457',   // broom handle (terracotta)
+  B: '#E8D9B8',   // broom bristles
+  W: '#2C1810',   // eyes (same as ink)
 };
 
 export function Logo({ size = 22 }: { size?: number }) {

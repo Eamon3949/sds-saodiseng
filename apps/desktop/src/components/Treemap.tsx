@@ -12,9 +12,9 @@ type Props = {
 };
 
 const PALETTE = [
-  '#ff6fa8', '#f472b6', '#ec4899', '#fb7185', '#e879f9',
-  '#c084fc', '#a855f7', '#fda4af', '#f9a8d4', '#ffb3cf',
-  '#fb923c', '#facc15',
+  '#D4A017', '#E8B94A', '#8B6914', '#C08457', '#B8860B',
+  '#DAA520', '#CD853F', '#A0522D', '#F5E6B8', '#D2B48C',
+  '#967444', '#FCD34D',
 ];
 
 function colorFor(name: string): string {
