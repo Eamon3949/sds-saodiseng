@@ -8,7 +8,7 @@
 
 Open-source disk cleaner. Scan a whole drive in seconds to see where the bytes went, drag any unfamiliar folder into the AI to learn what it is and whether it's safe to delete, then clean by scope — defaults to the Recycle Bin, never reads your file contents.
 
-[![License](https://img.shields.io/badge/License-MIT-ff69b4.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-D4A017.svg)](LICENSE)
 [![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB.svg)](https://tauri.app)
 [![Platform](https://img.shields.io/badge/Windows-lightgrey.svg)](#download)
 
@@ -23,7 +23,7 @@ Open-source disk cleaner. Scan a whole drive in seconds to see where the bytes w
 ## Download
 
 <p align="center">
-  <a href="https://github.com/Eamon3949/sds-saodiseng/releases/latest"><img src="https://img.shields.io/badge/⬇_Download_Latest_(Windows)-ff69b4?style=for-the-badge&logo=windows&logoColor=white" height="42"></a>
+  <a href="https://github.com/Eamon3949/sds-saodiseng/releases/latest"><img src="https://img.shields.io/badge/⬇_Download_Latest_(Windows)-D4A017?style=for-the-badge&logo=windows&logoColor=white" height="42"></a>
 </p>
 
 | Platform | File | Notes |
@@ -43,7 +43,7 @@ Open-source disk cleaner. Scan a whole drive in seconds to see where the bytes w
 <p align="center"><sub>In use · Left: <code>D:\</code> tree view (each row shows a usage % bar) · Center: drag <code>D:\steam\steamapps</code> into the AI, it answers in markdown — what this is and whether it's safe to delete · Right: Studio card expanded for Conda packages cache (5.12 GB · 150,867 files)</sub></p>
 
 <p align="center">
-  <img src="docs/screenshots/empty.png" alt="Empty state · the three-pane layout before scanning" width="100%">
+  <img src="docs/screenshots/empty.png" alt="Steam Inspector · scan Steam game library + workshop mod management" width="100%">
 </p>
 
 <p align="center"><sub>Empty state · Top "Pick a disk or folder" → click Scan to populate; the right-hand Studio already recognizes WeChat / Conda (showing "not detected" because the scaffold's default paths haven't been scanned yet)</sub></p>

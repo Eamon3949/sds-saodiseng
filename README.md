@@ -8,7 +8,7 @@
 
 开源磁盘清理工具。秒扫整盘看空间分配，把不认识的文件夹拖给 AI 让它告诉你这是什么、能不能删、删了会丢什么，再按 scope 逐项放心删——默认进回收站，永远不读你的文件内容。
 
-[![License](https://img.shields.io/badge/License-MIT-ff69b4.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-D4A017.svg)](LICENSE)
 [![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB.svg)](https://tauri.app)
 [![Platform](https://img.shields.io/badge/Windows-lightgrey.svg)](#下载)
 
@@ -23,7 +23,7 @@
 ## 下载
 
 <p align="center">
-  <a href="https://github.com/Eamon3949/sds-saodiseng/releases/latest"><img src="https://img.shields.io/badge/⬇_下载最新版_(Windows)-ff69b4?style=for-the-badge&logo=windows&logoColor=white" height="42"></a>
+  <a href="https://github.com/Eamon3949/sds-saodiseng/releases/latest"><img src="https://img.shields.io/badge/⬇_下载最新版_(Windows)-D4A017?style=for-the-badge&logo=windows&logoColor=white" height="42"></a>
 </p>
 
 | 平台 | 文件 | 备注 |
@@ -37,16 +37,16 @@
 ## 看效果
 
 <p align="center">
-  <img src="docs/screenshots/hero.png" alt="实际使用 · 扫完 D 盘后拖文件夹给 AI + 展开 Studio conda 卡片" width="100%">
+  <img src="docs/screenshots/hero.png" alt="实际使用 · 金棕禅意主题 · 树状视图 + AI 对话 + Studio 面板" width="100%">
 </p>
 
-<p align="center"><sub>实际使用 · 左：D:\ 树状视图（每行带占用百分比条）· 中：拖 <code>D:\steam\steamapps</code> 给 AI，AI 用 markdown 回答这是什么、能不能删 · 右：Studio 卡片展开 Conda packages cache（5.12 GB · 150,867 文件）</sub></p>
+<p align="center"><sub>实际使用 · 左：树状视图（每行带占用百分比条）· 中：拖文件夹给 AI，AI 用 markdown 回答这是什么、能不能删 · 右：Studio 面板（已识别的清理脚本）</sub></p>
 
 <p align="center">
-  <img src="docs/screenshots/empty.png" alt="初始空态 · 还没扫描时的三栏布局" width="100%">
+  <img src="docs/screenshots/empty.png" alt="Steam Inspector · 扫描 Steam 游戏库 + 创意工坊模组管理" width="100%">
 </p>
 
-<p align="center"><sub>初始空态 · 顶部"选择磁盘或文件夹"→ 点扫描后才会有内容；右侧 Studio 已经认出 WeChat / Conda 两个脚本（脚本默认路径还没扫到，所以是"未扫到"状态）</sub></p>
+<p align="center"><sub>Steam Inspector · 扫描 Steam 游戏库，查看游戏占用，管理创意工坊模组</sub></p>
 
 ---
 
