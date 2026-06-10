@@ -25,7 +25,7 @@ export function AdvisorCard({ node, advice, onComplete, onSkip, onInspect }: Pro
         : ShieldX;
 
   const accent =
-    advice?.risk === 'low' ? '#ffa3c7' : advice?.risk === 'medium' ? '#ffb37a' : advice?.risk === 'high' ? '#ff5d7a' : '#a17a8d';
+    advice?.risk === 'low' ? '#D4A017' : advice?.risk === 'medium' ? '#D97706' : advice?.risk === 'high' ? '#B91C1C' : '#5C4830';
 
   const act = async (action: 'recycle' | 'quarantine' | 'delete') => {
     setBusy(true);

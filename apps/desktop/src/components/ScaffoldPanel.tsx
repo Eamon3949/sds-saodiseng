@@ -33,7 +33,7 @@ export function ScaffoldPanel({ node, scaffold, onComplete, onSkip }: Props) {
   );
 
   const ShieldIcon = scaffold.risk === 'low' ? ShieldCheck : scaffold.risk === 'medium' ? ShieldAlert : ShieldX;
-  const accent = scaffold.risk === 'low' ? '#ffa3c7' : scaffold.risk === 'medium' ? '#ffb37a' : '#ff5d7a';
+  const accent = scaffold.risk === 'low' ? '#D4A017' : scaffold.risk === 'medium' ? '#D97706' : '#B91C1C';
 
   const total = useMemo(() => node.size, [node]);
 

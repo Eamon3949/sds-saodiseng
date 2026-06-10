@@ -463,7 +463,7 @@ export function ChatPanel() {
 
 function AdviceCard({ advice }: { advice: AdvisorResponse }) {
   const Icon = advice.risk === 'low' ? ShieldCheck : advice.risk === 'medium' ? ShieldAlert : ShieldX;
-  const color = advice.risk === 'low' ? '#5fcf95' : advice.risk === 'medium' ? '#ffb37a' : '#ff5d7a';
+  const color = advice.risk === 'low' ? '#5fcf95' : advice.risk === 'medium' ? '#D97706' : '#B91C1C';
   return (
     <div className="advice-pill" style={{ borderColor: color }}>
       <Icon size={14} style={{ color }} />
