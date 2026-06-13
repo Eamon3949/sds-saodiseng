@@ -4,7 +4,7 @@ Place release-quality PNGs here:
 
 | File | What it shows |
 |---|---|
-| `01-scan.png` | Main window after a scan — TreeView + Treemap + Auto-Walk idle. Aim for ~1280×720, light pink theme. |
+| `01-scan.png` | Main window after a scan — TreeView + Treemap + Auto-Walk idle. Aim for ~1280×720, Zen Gold theme. |
 | `02-scaffold.png` | An Auto-Walk scaffold panel (e.g. WeChat or Edge) with the scope checkboxes. |
 | `03-advisor.png` | An AI advisor card on an unknown folder, after the model has answered. |
 

@@ -46,10 +46,10 @@ apps/desktop/vite.config.js
 apps/desktop/vite.config.d.ts
 **/tsconfig.tsbuildinfo
 
-# Pinkbin local data
-.pinkbin/
+# SDS扫地僧 local data
+.saodiseng/
 .diskwise/
-pinkbin.local.json
+saodiseng.local.json
 
 # Generated icon source (produced by scripts/generate-icon.ps1)
 apps/desktop/src-tauri/icon-source.png
