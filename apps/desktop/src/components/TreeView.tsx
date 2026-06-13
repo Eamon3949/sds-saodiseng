@@ -82,7 +82,7 @@ function FileGlyph({ ext }: { ext: string }) {
     /^(exe|msi|cmd|bat|com)$/i.test(ext) ? '#cfe6ff' :
     /^(dll|sys|drv|ocx)$/i.test(ext) ? '#dfd6f7' :
     /^(zip|rar|7z|tar|gz|xz)$/i.test(ext) ? '#ffd6c0' :
-    /^(png|jpg|jpeg|gif|bmp|webp|svg|ico)$/i.test(ext) ? '#ffd0e6' :
+    /^(png|jpg|jpeg|gif|bmp|webp|svg|ico)$/i.test(ext) ? '#f0e4c8' :
     /^(mp3|wav|flac|m4a|ogg)$/i.test(ext) ? '#d0f0d8' :
     /^(mp4|mov|mkv|avi|webm)$/i.test(ext) ? '#c8eaef' :
     /^(txt|md|log)$/i.test(ext) ? '#fff1bd' :
